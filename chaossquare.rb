@@ -7,7 +7,7 @@ class ChaosSquare
   def initialize()
     @chaos_gem = ChaosGem.new
     @dice = Dice.new
-    @messages = ["Nothing interesting happens.", "A pretty uneventful turn.", "You fail to invoke the power of the Chaos Gem.", "This game's pretty fun, right?", "You stumble across an ex parrot.", "Wow, this is a dull game.", "You sit down. You stand up. You sit down again.", "Some knights appear. They say 'ni!'.", "What a beautiful day.", "Something will happen soon, honest!", "Are you feeling the chaos yet?", "A Frenchman called you a 'smelly English snigget'.", ]
+    @messages = ["Nothing interesting happens.", "A pretty uneventful turn.", "You fail to invoke the power of the Chaos Gem.", "This game's pretty fun, right?", "You stumble across an ex parrot.", "Wow, this is a dull game.", "You sit down. You stand up. You sit down again.", "Some knights appear. They say 'ni!'.", "What a beautiful day.", "Something will happen soon, honest!", "Are you feeling the chaos yet?", "A Frenchman appears. He calls you a 'smelly English snigget'.", "You encounter a swirling mass of tentacles. You wisely choose to walk around it.", "We probably put too much time into these messages.", "Far in the distance, you spot an African swallow carrying a coconut."]
     @message = rand(@messages.length)
   end
 

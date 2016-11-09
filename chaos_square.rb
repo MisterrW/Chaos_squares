@@ -1,6 +1,6 @@
 require_relative('dice')
 require_relative('players')
-require_relative('chaosgem')
+require_relative('chaos_gem')
 
 class ChaosSquare
 

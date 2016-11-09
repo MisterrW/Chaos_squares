@@ -3,6 +3,6 @@ class ChaosGem
   end
 
   def roll
-   return 1 + rand(400)
+   return 1 + rand(450)
  end
 end

@@ -22,9 +22,9 @@ class Game
     @players = Array.new(number_of_players, nil)
     @players.each_with_index do |x, y|
       puts "Please enter your name."
-      player_name = gets.chomp
+      player_name = gets().chomp().capitalize()
       puts "Please choose a race: elf or orc."
-      player_race = gets.chomp.downcase
+      player_race = gets().chomp().downcase()
       @players[y] = Player.new(player_name, player_race)
     end
     current_round()

@@ -27,7 +27,9 @@ class ChaosSquare
     when 301..350
       return take_damage(player, outcome)
     when 351..400
-        return health_boost(player, outcome)
+      return health_boost(player, outcome)
+    when 401..450
+      return speed_perk(player, outcome)
     end
   end
 
@@ -53,5 +55,9 @@ class ChaosSquare
     return "You find a shrubbery! You have gained #{boost} health."
   end
 
-
+  def speed_perk(player, outcome)
+    perk = (outcome/12.0)
+    player.stats[:speed] += perk
+    return "You feel a sudden sense of urgency. Speed permanently increased!"
+  end
 end

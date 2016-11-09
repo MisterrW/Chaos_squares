@@ -10,7 +10,7 @@ class Player
     @race_choice = {
       "orc" => {
         race: "Orc",
-        hitpoints: 30,
+        hitpoints: 1,
         speed: 0.85,
         attack: 8,
         move_messages: ["#{@name} stamps along, dragging his axe behind him.", "'I wonder why my skin's green? Do I photosynthesize?' #{@name} philosophises, passing the time.", "#{@name} walks past a tasty-looking human. Oh well, no time to eat now.", "#{@name} stamps extra hard. He has special stamping boots. Probably DMs."]
@@ -50,6 +50,8 @@ class Player
   def death
     @position = 1
     if @stats[:race] != "Zombie"
+      old_name = @name
+      @name = "#{@name} the Zombie"
       @stats = {
         race: "Zombie",
         hitpoints: 10,
@@ -58,8 +60,9 @@ class Player
         move_messages: ["Head bowed, mind blank, #{@name} shuffles on.", "#{@name} wonders why he's walking so slowly. He looks down, to find that one of his feet has been eaten by a badger.", "#{@name} is sure he had a good reason for playing this game, once.", "'Eeuuueueeuughh', #{name} wails plaintively. Nobody hears."]
 
       }
-      return "Sorry, #{@name}, you have died! But always look on the bright side...you've come back. As a zombie. On square one. And remember: zombies are slooow."
+      return "Sorry, #{old_name}, you have died! But always look on the bright side...you've come back. As a zombie. On square one. And remember: zombies are slooow."
     else
+      @name = "#{@name} Boss"
       @stats = {
         race: "Fast Zombie",
         hitpoints: 100,

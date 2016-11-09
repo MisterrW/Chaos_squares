@@ -18,16 +18,16 @@ class ChaosSquare
       puts "You have invoked the power of the Chaos Gem!"
     end
     case square_type
-    when 1..300
+    when 1..200
       return @messages[@message]
-    when 301..310
+    when 201..250
       return move_player_forward(player, outcome)
-    when 311..320
+    when 251..300
       return move_player_backward(player, outcome)
-    when 321..330
+    when 301..350
       return take_damage(player, outcome)
-    when 331..400
-        return take_damage(player, outcome)
+    when 351..400
+        return health_boost(player, outcome)
     end
   end
 

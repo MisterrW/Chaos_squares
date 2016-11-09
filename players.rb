@@ -3,10 +3,10 @@ require("pry-byebug")
 class Player
 
   attr_reader :name, :number, :race, :stats
-  def initialize(name, number, race)
+  attr_accessor :position
+  def initialize(name, race)
     @name = name
     @race = race
-    @number = number
 
 
     @race_choice = {
@@ -26,7 +26,7 @@ class Player
       @stats = @race_choice[race]
       @position = 1
 
-
+      
 
   end
 end

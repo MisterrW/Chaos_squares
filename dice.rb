@@ -4,7 +4,7 @@ class Dice
       # output = 1 + rand(400)
     end
 
-    def roll
+    def roll()
      return 1 + rand(12)
    end
   end

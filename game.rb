@@ -35,9 +35,14 @@ class Game
       end
       chaos = ChaosSquare.new()
       puts chaos.chaos_effect(player)
+      if player.stats[:hitpoints] <= 0
+        puts player.death
+      end
+      # binding.pry
     end
     current_round()
   end
+
 end
 
 new_game = Game.new

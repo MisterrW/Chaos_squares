@@ -1,7 +1,6 @@
 require_relative('dice')
 require_relative('players')
-require_relative('chaos_squares')
-require_relative('chaos_gem')
+require_relative('chaossquare')
 
 class Game
   attr_reader :turn
@@ -29,13 +28,16 @@ class Game
       gets.chomp
       player.position += @dice.roll()
       puts "#{player.name} is at position #{player.position}."
-      if player.position >= 30
-        puts "#{player.name} has won! Play again or type !!! to exit."
+      if player.position >= 150
+        puts "#{player.name} has won! Play again!"
         exit
-      end      
+      end
+      # chaos = ChaosSquare.new()
+      # puts chaos.chaos_effect(player)
     end
     current_round()
   end
 end
+
 new_game = Game.new
 new_game.new_game()

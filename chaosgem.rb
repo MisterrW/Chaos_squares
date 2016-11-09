@@ -1,7 +1,5 @@
 class ChaosGem
-  # attr_reader :output
   def initialize()
-    # output = 1 + rand(400)
   end
 
   def roll

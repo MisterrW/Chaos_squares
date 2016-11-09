@@ -1,9 +1,7 @@
-require("pry-byebug")
-
 class Player
 
-  attr_reader :name, :number, :race, :stats
-  attr_accessor :position
+  attr_reader :name, :number, :stats
+  attr_accessor :position, :race
   def initialize(name, race)
     @name = name
     @race = race
@@ -11,19 +9,29 @@ class Player
 
     @race_choice = {
       "orc" => {
-        hitpoints: 20,
+        race: "Orc",
+        hitpoints: 26,
         speed: -2,
-        attack: 4
+        attack: 8
         },
 
         "elf" => {
-          hitpoints: 12,
+          race: "Elf",
+          hitpoints: 18,
           speed: 2,
-          attack: 5
+          attack: 4
         }
       }
 
       @stats = @race_choice[race]
+      if @stats == nil
+        @stats = {
+          race: "Human",
+          hitpoints: 22,
+          speed: 0,
+          attack: 6
+        }
+      end
       @position = 1
 
       

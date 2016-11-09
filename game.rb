@@ -1,3 +1,4 @@
+require('pry-byebug')
 require_relative('dice')
 require_relative('players')
 require_relative('chaossquare')
@@ -13,7 +14,7 @@ class Game
     number_of_players = gets.chomp.to_i
     @players = Array.new(number_of_players, nil)
     @players.each_with_index do |x, y|
-      puts "Please enter your name, or type start to begin!"
+      puts "Please enter your name."
       player_name = gets.chomp
       puts "Please choose a race: elf or orc."
       player_race = gets.chomp.downcase
@@ -32,8 +33,8 @@ class Game
         puts "#{player.name} has won! Play again!"
         exit
       end
-      # chaos = ChaosSquare.new()
-      # puts chaos.chaos_effect(player)
+      chaos = ChaosSquare.new()
+      puts chaos.chaos_effect(player)
     end
     current_round()
   end

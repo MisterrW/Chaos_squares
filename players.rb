@@ -1,20 +1,25 @@
 class Player
 
-  attr_reader :name, :number, :breed, :hitpoints, :speed, :attack
-  def initialize(name, number, breed)
+  attr_reader :name, :number, :race
+  def initialize(name, number, race)
     @name = name
     @number = number
-    @breed = breed
-    if breed == "orc"
-      @hitpoints = 20
-      @speed = -2
-      @attack = 4
-    elsif breed == "elf"
-      @hitpoints = 12
-      @speed = 2
-      @attack = 5
-    end
+    @race = @race_choice[race]
     @position = 1
+
+    @race_choice = {
+    "orc" => {
+      hitpoints: 20,
+      speed: -2,
+      attack: 4
+    },
+
+    "elf" => {
+      hitpoints: 12,
+      speed: 2,
+      attack: 5
+    }
+  }
   end
 
 

@@ -5,6 +5,7 @@ require_relative('dice')
 require_relative('players')
 require_relative('chaos_squares')
 require_relative('chaos_gem')
+require("pry-byebug")
 
 class TestGame < Minitest::Test
   def setup()
@@ -21,12 +22,12 @@ class TestGame < Minitest::Test
   end
 
   def test_player_hitpoints
-    assert_equal(@player1.race[:hitpoints], 20)
+    assert_equal(@player1.stats[:hitpoints], 20)
   end
 
-  def test_player_attack
-    assert_equal(@player1.race[:attack], 4)
-  end
+  # def test_player_attack
+  #   assert_equal(@player1.race[:attack], 4)
+  # end
 
   # def test_chaos_effect
   #   chaos_effect(1, 4)

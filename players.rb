@@ -10,17 +10,17 @@ class Player
     @race_choice = {
       "orc" => {
         race: "Orc",
-        hitpoints: 1,
-        speed: 0.85,
-        attack: 8,
+        hitpoints: 30,
+        speed: 0.9,
+        attack: 5,
         move_messages: ["#{@name} stamps along, dragging his axe behind him.", "'I wonder why my skin's green? Do I photosynthesize?' #{@name} philosophises, passing the time.", "#{@name} walks past a tasty-looking human. Oh well, no time to eat now.", "#{@name} stamps extra hard. He has special stamping boots. Probably DMs."]
         },
 
         "elf" => {
           race: "Elf",
-          hitpoints: 10,
-          speed: 1.15,
-          attack: 4,
+          hitpoints: 20,
+          speed: 1.1,
+          attack: 5,
           move_messages: ["#{@name} strides along, his pointy ears flapping in the breeze.", "'This journey is taking forever', thinks #{@name} as he walks. Luckily, #{@name} lives forever.", "#{@name} sighs. So much walking. So many tentacles.", "Fleet of foot, #{@name} prances along.", "#{@name} whistles irritating tunes as he strides."]
         }
       }
@@ -29,9 +29,9 @@ class Player
       if @stats == nil
         @stats = {
           race: "Human",
-          hitpoints: 20,
+          hitpoints: 25,
           speed: 1,
-          attack: 6,
+          attack: 5,
           move_messages: ["#{@name} hopes there aren't any orcs nearby.", "'Why did I agree to play this game in the first place?', #{@name} wonders. One sympathises.", "'Got to keep going, #{@name}', he says to himself. There must be something bloody brilliant at the end.", "'Was that a pair of European swallows with a tropical fruit suspended between them?', muses #{@name}, to take his mind off the endless walking."]
         }
       end

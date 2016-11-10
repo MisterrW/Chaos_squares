@@ -2,6 +2,7 @@ require('pry-byebug')
 require_relative('dice')
 require_relative('players')
 require_relative('chaos_square')
+require_relative('combat')
 
 class Game
   attr_reader :turn
@@ -10,10 +11,11 @@ class Game
     @board_length = 150
   end
 
-  def new_game()
-    puts "Welcome to Chaos Squares!" 
-    puts "Chaos Squares is a board game. There is no board, but there are quite a lot of squares."
-    puts "Whoever gets to square #{@board_length} first, wins. Easy!"
+  def intro_spiel()
+    return ["Welcome to Chaos Squares!", "Chaos Squares is a board game. There is no board, but there are quite a lot of squares.", "Whoever gets to square #{@board_length} first, wins. Easy!"]
+  end
+
+  def player_setup()
     puts "How many victims would you like to torment?"
     number_of_players = gets.chomp.to_i
     unless number_of_players >= 1
@@ -30,17 +32,24 @@ class Game
     current_round()
   end
 
+  def new_game()
+    puts intro_spiel()
+    player_setup()
+  end
+
   def current_round()
     for player in @players
       puts ""
       puts "#{player.name}'s turn. Press enter to roll."
       gets.chomp
-      player.position += ( @dice.roll() * player.stats[:speed] ).round()
+      roll = @dice.roll()
+      puts "#{player.name}, you have rolled #{roll}."
+      player.position += ( roll * player.stats[:speed] ).round()
       puts player.move_message
       puts "#{player.name} is on square #{player.position}."
       if player.position >= @board_length
-        puts "OMG #{player.name} HAS WON CHAOS SQUARES!!!?!1! WTF!?!?1?? play again SOON!"
-        puts 'BYE!!'
+        puts "#{player.name} has won CHAOS SQUARES!!!?!1!"
+        puts
         quit_game()
       end
       chaos = ChaosSquare.new()
@@ -49,7 +58,15 @@ class Game
         puts player.death
       end
       # binding.pry
+      fight_matcher = @players.delete(player)
+      for player2 in fight_matcher
+        if player.position == player2.position
+          combat = Combat.new(player, player2)
+          combat.fight
+        end
+      end
     end
+
     current_round()
   end
 
